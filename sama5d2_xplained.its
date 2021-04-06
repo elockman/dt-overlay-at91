@@ -212,7 +212,7 @@
 
 		fdt_xeal_sama5d2_v1 {
 			description = "Device Tree blob Xeal SAMA5D2 v1 board overlay";
-			data = /incbin/("./sama5d2_xplained/xeal-sama5d2-v1.dtbo");
+			data = /incbin/("./sama5d2_xplained/sama5d2_xplained_xsite.dtbo");
 			type = "flat_dt";
 			arch = "arm";
 			compression = "none";
