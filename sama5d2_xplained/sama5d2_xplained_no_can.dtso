@@ -19,26 +19,6 @@
     serial1 = &uart5; /* /dev/ttyS1 RS485 port */
 };
 
-&usb0 {
-    status = "disabled";
-};
-
-&usb1 {
-    num-ports = <2>;
-};
-
-&usb2 {
-    status = "disabled";
-};
-
-&uart0 {
-    status = "disabled";
-};
-
-&uart3 {
-    status = "disabled";
-};
-
 &can0 {
     status = "disabled";
 };
@@ -62,24 +42,10 @@
     status = "okay";
     pinctrl-names = "default";
           pinctrl-0 = <&pinctrl_flx0_ioset1>;
-    linux,rs485-enabled-at-boot-time;
+		  linux,rs485-enabled-at-boot-time;
           rs485-rts-delay = <0 20>;
   };
 };
-
-&flx4 {
-    status = "disabled";
-};
-
-&adc {
-    pinctrl-0 = <&pinctrl_adc_default>;
-};
-
-&pwm0 {
-    pinctrl-0 = <&pinctrl_pwm0_dac>;
-    status = "okay";
-};
-
 
 &pioA {
   pinctrl_adc_default: adc_default {
