@@ -69,7 +69,6 @@
 
 		xeal_sama5d2_v1 {
 			description = "Product-specific FDT blob for Xeal SAMA5D2 v1 board";
-			# pulled from https://github.com/elockman/dt-overlay-at91
 			fdt = "xeal_sama5d2_v1_fdt";
 		};
 	};
