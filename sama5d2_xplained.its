@@ -45,9 +45,9 @@
 			};
 		};
 
-		fdt_isc {
-			description = "Device Tree blob ISC overlay";
-			data = /incbin/("./sama5d2_xplained/sama5d2_xplained_isc.dtbo");
+		fdt_no_can {
+			description = "Device Tree blob NO-CAN overlay";
+			data = /incbin/("./sama5d2_xplained/sama5d2_xplained_no_can.dtbo");
 			type = "flat_dt";
 			arch = "arm";
 			compression = "none";
@@ -240,9 +240,9 @@
 			fdt = "base_fdt";
 		};
 
-		isc {
-			description = "FDT overlay blob for isc";
-			fdt = "fdt_isc";
+		no_can {
+			description = "FDT overlay blob for no can";
+			fdt = "fdt_no_can";
 		};
 
 		ov7670 {
