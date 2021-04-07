@@ -45,9 +45,9 @@
 			};
 		};
 
-		fdt_no_can {
-			description = "Device Tree blob NO-CAN overlay";
-			data = /incbin/("./sama5d2_xplained/sama5d2_xplained_no_can.dtbo");
+		fdt_modbus {
+			description = "Device Tree blob MODBUS overlay";
+			data = /incbin/("./sama5d2_xplained/sama5d2_xplained_flx0_modbus.dtbo");
 			type = "flat_dt";
 			arch = "arm";
 			compression = "none";
@@ -60,9 +60,9 @@
 			};
 		};
 
-		fdt_ov7670 {
-			description = "Device Tree blob Ov7670 overlay";
-			data = /incbin/("./sama5d2_xplained/sama5d2_xplained_ov7670.dtbo");
+		fdt_serial {
+			description = "Device Tree blob serial overlay";
+			data = /incbin/("./sama5d2_xplained/sama5d2_xplained_flx0_serial.dtbo");
 			type = "flat_dt";
 			arch = "arm";
 			compression = "none";
@@ -240,14 +240,14 @@
 			fdt = "base_fdt";
 		};
 
-		no_can {
-			description = "FDT overlay blob for no can";
-			fdt = "fdt_no_can";
+		modbus {
+			description = "FDT overlay blob for modbus";
+			fdt = "fdt_modbus";
 		};
 
-		ov7670 {
-			description = "FDT overlay blob for ov7670 sensor";
-			fdt = "fdt_ov7670";
+		serial {
+			description = "FDT overlay blob for serial sensor";
+			fdt = "fdt_serial";
 		};
 
 		ov7740 {

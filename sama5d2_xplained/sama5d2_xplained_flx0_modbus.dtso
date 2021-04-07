@@ -1,0 +1,70 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+/*
+ * sama5d2_xplained_flx0_i2c.dtso - Device Tree file for SAMA5D2 Xplained board
+ * overlay blob to configure Flexcom0 as UART for Modbus.
+ *
+ * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries
+ * Author: Codrin Ciubotariu <codrin.ciubotariu@microchip.com>
+ *
+ */
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/mfd/atmel-flexcom.h>
+#include "sama5d2-pinfunc.h"
+#include <dt-bindings/gpio/gpio.h>
+
+&isc {
+	status = "disabled";
+};
+
+&flx0 {
+	//atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_USART>;
+	status = "okay"; /* conflict with ISC_D2 & ISC_D3 data pins */
+
+	uart5: serial@200 {
+		pinctrl-names = "modbus";
+		pinctrl-0 = <&pinctrl_flx0_ioset1>;
+		linux,rs485-enabled-at-boot-time;
+		rs485-rts-delay = <0 20>;
+		status = "okay";
+	};
+};
+
+&pioA {
+	pinctrl_flx0_ioset1: flx0_ioset1 {
+		pinmux = <PIN_PB28__FLEXCOM0_IO0>, /* TX */
+				 <PIN_PB29__FLEXCOM0_IO1>, /* RX */
+				 <PIN_PB31__FLEXCOM0_IO3>, /* CTS */
+				 <PIN_PC0__FLEXCOM0_IO4>;  /* RTS */
+		bias-disable;
+	};
+};
+
+&{/} {
+	leds {
+		compatible = "gpio-leds";
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_led_gpio_default>;
+		status = "okay"; /* conflict with pwm0 */
+
+		red {
+			label = "red";
+			gpios = <&pioA PIN_PB6 GPIO_ACTIVE_LOW>;
+		};
+
+
+		green {
+			label = "green";
+			gpios = <&pioA PIN_PB5 GPIO_ACTIVE_LOW>;
+			linux,default-trigger = "heartbeat";
+		};
+
+		blue {
+			label = "blue";
+			gpios = <&pioA PIN_PB0 GPIO_ACTIVE_LOW>;
+			//linux,default-trigger = "heartbeat";
+		};
+	};
+};
+
