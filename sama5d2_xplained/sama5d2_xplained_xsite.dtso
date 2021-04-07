@@ -47,57 +47,39 @@
     status = "disabled";
 };
 
+&spi0 {
+    status = "disabled";
+};
+
 &isc {
-  status = "disabled";
+    status = "disabled";
 };
 
 &i2c2 {
-    status = "disabled";
+   status = "disabled";
 };
 
 
 &flx0 {
-  atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_USART>;
-  status = "okay"; /* conflict with ISC_D2 & ISC_D3 data pins */
-  uart5: serial@200 {
-    status = "okay";
-    pinctrl-names = "default";
-          pinctrl-0 = <&pinctrl_flx0_ioset1>;
-    linux,rs485-enabled-at-boot-time;
-          rs485-rts-delay = <0 20>;
-  };
+    status = "okay"; /* conflict with ISC_D2 & ISC_D3 data pins */
+    uart5: serial@200 {
+        pinctrl-0 = <&pinctrl_flx0_ioset1>;
+        linux,rs485-enabled-at-boot-time;
+        rs485-rts-delay = <0 20>;
+    };
 };
 &flx4 {
     status = "disabled";
 };
 
-&pwm0 {
-    pinctrl-0 = <&pinctrl_pwm0_dac>;
-    status = "okay";
-};
-
-&adc {
-    pinctrl-0 = <&pinctrl_adc_default>;
-};
-
-
 &pioA {
-  pinctrl_adc_default: adc_default {
-        pinmux = <PIN_PD23__GPIO>;
+    pinctrl_flx0_ioset1: flx0_ioset1 {
+        pinmux = <PIN_PB28__FLEXCOM0_IO0>, /* TX */
+                 <PIN_PB29__FLEXCOM0_IO1>, /* RX */
+                 <PIN_PB31__FLEXCOM0_IO3>, /* CTS */
+                 <PIN_PC0__FLEXCOM0_IO4>;  /* RTS */
         bias-disable;
     };
-  
-  pinctrl_pwm0_dac: pwm0_dac {
-        pinmux = <PIN_PB6__PWML2>;
-  };
-
-  pinctrl_flx0_ioset1: flx0_ioset1 {
-        pinmux = <PIN_PB28__FLEXCOM0_IO0>, /* TX */
-           <PIN_PB29__FLEXCOM0_IO1>, /* RX */
-             <PIN_PB31__FLEXCOM0_IO3>, /* CTS */
-             <PIN_PC0__FLEXCOM0_IO4>;  /* RTS */
-          bias-disable;
-  };
 };
 
 &{/} {

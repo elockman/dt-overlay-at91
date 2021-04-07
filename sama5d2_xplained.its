@@ -75,9 +75,9 @@
 			};
 		};
 
-		fdt_ov7740 {
+		fdt_uart {
 			description = "Device Tree blob OV7740 overlay";
-			data = /incbin/("./sama5d2_xplained/sama5d2_xplained_ov7740.dtbo");
+			data = /incbin/("./sama5d2_xplained/sama5d2_xplained_flx0_uart.dtbo");
 			type = "flat_dt";
 			arch = "arm";
 			compression = "none";
@@ -250,9 +250,9 @@
 			fdt = "fdt_serial";
 		};
 
-		ov7740 {
-			description = "FDT overlay blob for ov7740 sensor";
-			fdt = "fdt_ov7740";
+		uart {
+			description = "FDT overlay blob for uart sensor";
+			fdt = "fdt_uart";
 		};
 
 		ov5640 {
