@@ -21,13 +21,12 @@
 &flx0 {
 	//atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_USART>;
 	status = "okay"; /* conflict with ISC_D2 & ISC_D3 data pins */
-
 	uart5: serial@200 {
-		pinctrl-names = "modbus";
+		//pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_flx0_ioset1>;
-		linux,rs485-enabled-at-boot-time;
-		rs485-rts-delay = <0 20>;
-		status = "okay";
+		//linux,rs485-enabled-at-boot-time;
+		//rs485-rts-delay = <0 20>;
+		//status = "okay";
 	};
 };
 
