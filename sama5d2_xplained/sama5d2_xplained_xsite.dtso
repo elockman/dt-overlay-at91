@@ -16,7 +16,7 @@
 
 &{/aliases} {
     serial1 = &uart5; /* /dev/ttyS1 RS485 port */
-    serial2 = &uart3; /* /dev/ttyS2 Dust Sensor port */
+    //serial2 = &uart3; /* /dev/ttyS2 Dust Sensor port */
 };
 
 
