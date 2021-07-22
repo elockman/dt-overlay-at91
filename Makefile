@@ -19,6 +19,7 @@ SAMA5D2_XPLAINED_GRTS_DTBO_OBJECTS:= $(patsubst %.dtso,%.dtbo,$(wildcard sama5d2
 SAMA5D3_XPLAINED_DTBO_OBJECTS:= $(patsubst %.dtso,%.dtbo,$(wildcard sama5d3_xplained/*.dtso))
 SAMA5D4_XPLAINED_DTBO_OBJECTS:= $(patsubst %.dtso,%.dtbo,$(wildcard sama5d4_xplained/*.dtso))
 SAMA7G5EK_DTBO_OBJECTS:= $(patsubst %.dtso,%.dtbo,$(wildcard sama7g5ek/*.dtso))
+XEAL_SAMA5D2_V1_DTBO_OBJECTS:= $(patsubst %.dtso,%.dtbo,$(wildcard xeal_sama5d2_v1/*.dtso))
 
 %.pre.dtso: %.dtso
 	$(CC) -E -nostdinc -I$(KERNEL_DIR)/include -I$(KERNEL_DIR)/arch/arm/boot/dts -x assembler-with-cpp -undef -o $@ $^
@@ -50,6 +51,8 @@ sama5d3_xplained_dtbos: $(SAMA5D3_XPLAINED_DTBO_OBJECTS)
 sama5d4_xplained_dtbos: $(SAMA5D4_XPLAINED_DTBO_OBJECTS)
 
 sama7g5ek_dtbos: $(SAMA7G5EK_DTBO_OBJECTS)
+
+xeal_sama5d2_v1_dtbos: $(XEAL_SAMA5D2_V1_DTBO_OBJECTS)
 
 .PHONY: clean
 clean:
